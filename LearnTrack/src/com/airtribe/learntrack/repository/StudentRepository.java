@@ -1,0 +1,37 @@
+package com.airtribe.learntrack.repository;
+
+import com.airtribe.learntrack.entity.Student;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StudentRepository {
+
+    private final List<Student> students;
+
+    public StudentRepository() {
+        this.students = new ArrayList<>();
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public List<Student> getAllStudents() {
+        return students;
+    }
+
+    public Student findStudentById(int id) {
+        for (Student student : students) {
+            if (student.getId() == id) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public boolean removeStudent(Student student) {
+        return students.remove(student);
+    }
+
+}
